@@ -7,14 +7,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/login-form/login.php">Home</a>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/login-form/signup.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="/login-form/login.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/login-form/Login.php">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/login-form/welcome.php">Sign Up</a>
+          <a class="nav-link active" aria-current="page" href="/login-form/signup.php"> Have no Account Sign Up</a>
         </li>
        
       
