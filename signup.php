@@ -1,5 +1,29 @@
+
 <?php
-include 'components/db_connect.php'
+$alert=false;
+$datainerror=false;
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+include 'components/db_connect.php';
+
+$name =$_POST["name"];
+$username =$_POST["username"];
+$password =$_POST["password"];
+$cpassword =$_POST["cpassword"];
+$exist=false;
+
+
+if(($password==$cpassword) && $exist==false){
+  $sql = " INSERT INTO `sign` ( `name`, `username`, `password`, `cpassword`, `time`) VALUES ('$name', '$username', '$password', '$cpassword', current_timestamp())";
+  $result =mysqli_query($conn , $sql);
+  if($result){
+    // echo "Success";
+    $alert=true;
+  }
+}
+else{
+  $datainerror="Both Password does not match...";
+}
+}
 ?>
 
 <!doctype html>
@@ -34,6 +58,26 @@ body {
   <?php
     require 'components/_nav.php'
     ?>
+    <?php
+    if($alert){
+      echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+      <strong>Successfully!</strong> Your accout have been created....
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>×</span>
+      </button>
+    </div>";
+    }
+    if($datainerror){
+      echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+      <strong>Error!</strong>'.$datainerror.'
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>×</span>
+      </button>
+    </div>";
+    }
+    ?>
+
+
     <div class="container d-flex justify-content-center ">
 <div class="card border-success mb-3 card text-center mt-5 card-bg" style="max-width: 25rem;">
   <div class="card-header bg-transparent border-success">Create Your Account</div>
@@ -42,15 +86,15 @@ body {
     <form action="/login-form/signup.php" method="post">
   <div class="mb-3">
     <label for="signusername" class="form-label">Enter Your Name</label>
-    <input type="signusername" class="form-control" id="name" name="signusername" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="signusername" class="form-label">Enter your Username/Email</label>
-    <input type="username" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label"> Create Password</label><br>
-    <input type="password" class="Password" id="Password" name = "password">
+    <input type="password" class="Password" id="password" name = "password">
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label"> Confirm Password</label><br>
