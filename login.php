@@ -8,22 +8,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM sign WHERE username='$username' AND password ='$password'";
+    $sql = "SELECT * FROM sign WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
-    $num = mysqli_num_rows($result);
 
-    if ($num == 1) {
-        $login = true;
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
-        header("Location: welcome.php");
-        exit; // Make sure to exit after header redirection
+    if ($result) {
+        // Check if any rows were returned
+        $num = mysqli_num_rows($result);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($result); // Fetch the row
+            if (password_verify($password, $row['password'])) {
+                $login = true;
+                session_start();
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $username;
+                header("Location: welcome.php");
+                exit; // Make sure to exit after header redirection
+            } else {
+                $showlogerror = "The password you have entered is incorrect.";
+            }
+        } else {
+            $showlogerror = "The username you have entered does not exist. Please enter a valid username.";
+        }
     } else {
-        $showlogerror = "The data you have entered does not exist. Please enter valid details or create an account if you don't have one.";
+        $showlogerror = "An error occurred while retrieving user data.";
     }
 }
 ?>
+
 
 <!doctype html>
 <html lang="en">

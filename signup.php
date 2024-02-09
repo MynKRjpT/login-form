@@ -18,7 +18,8 @@ if($numExistRows > 0){
 $datainerror ="Username Already Exists Please try by another username";
 }
 else{
- $sql = " INSERT INTO `sign` ( `name`, `username`, `password`, `cpassword`, `time`) VALUES ('$name', '$username', '$password', '$cpassword', current_timestamp())";
+  $hash = password_hash("$password", PASSWORD_DEFAULT);
+ $sql = " INSERT INTO `sign` ( `name`, `username`, `password`, `cpassword`, `time`) VALUES ('$name', '$username', '$hash', '$hash', current_timestamp())";
   $result =mysqli_query($conn , $sql);
   if($result){
     // echo "Success";
@@ -93,19 +94,19 @@ body {
     <form action="/login-form/signup.php" method="post">
   <div class="mb-3">
     <label for="signusername" class="form-label">Enter Your Name</label>
-    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+    <input type="text" maxlength="50"class="form-control" id="name" name="name" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="signusername" class="form-label">Enter your Username</label>
-    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+    <input type="text" maxlength="50" class="form-control" id="username" name="username" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label"> Create Password</label><br>
-    <input type="password" class="Password" id="password" name = "password">
+    <input type="password" maxlength="50" class="Password" id="password" name = "password">
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label"> Confirm Password</label><br>
-    <input type="password" class="Password" id="cpassword" name = "cpassword">
+    <input type="password" maxlength="50" class="Password" id="cpassword" name = "cpassword">
     <div id="emailHelp" class="form-text">The create password and confirm password must be same</div>
   </div>
   <button type="submit" class="btn btn-primary">Create Account</button>
