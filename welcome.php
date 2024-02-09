@@ -17,7 +17,7 @@ exit;
   </head>
   <body>
   <?php
-    require 'components/_nav.php'
+    require 'components/logout_nav.php'
     ?>
   <div class="card">
   <div class="card-header">
