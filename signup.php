@@ -9,19 +9,25 @@ $name =$_POST["name"];
 $username =$_POST["username"];
 $password =$_POST["password"];
 $cpassword =$_POST["cpassword"];
-$exist=false;
 
-
-if(($password==$cpassword) && $exist==false){
-  $sql = " INSERT INTO `sign` ( `name`, `username`, `password`, `cpassword`, `time`) VALUES ('$name', '$username', '$password', '$cpassword', current_timestamp())";
+//checking username is exist or not
+$existSql = "SELECT * FROM sign WHERE username='$username'";
+$result =mysqli_query($conn , $existSql);
+$numExistRows = mysqli_num_rows($result);
+if($numExistRows > 0){
+$datainerror ="Username Already Exists Please try by another username";
+}
+else{
+ $sql = " INSERT INTO `sign` ( `name`, `username`, `password`, `cpassword`, `time`) VALUES ('$name', '$username', '$password', '$cpassword', current_timestamp())";
   $result =mysqli_query($conn , $sql);
   if($result){
     // echo "Success";
     $alert=true;
-  }
+
 }
 else{
   $datainerror="Both Password does not match...";
+}
 }
 }
 ?>
@@ -61,7 +67,8 @@ body {
     <?php
     if($alert){
       echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-      <strong>Successfully!</strong> Your accout have been created....
+      <strong>Successfully!</strong> Your accout have been created.... Now click on login to log In
+      to  your Account....
       <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
         <span aria-hidden='true'>×</span>
       </button>
@@ -89,8 +96,8 @@ body {
     <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
-    <label for="signusername" class="form-label">Enter your Username/Email</label>
-    <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+    <label for="signusername" class="form-label">Enter your Username</label>
+    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label"> Create Password</label><br>

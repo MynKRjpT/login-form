@@ -16,7 +16,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/login-form/signup.php"> Have no Account Sign Up</a>
         </li>
-       
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/login-form/login.php"> Log Out</a>
+        </li>
       
       </ul>
 

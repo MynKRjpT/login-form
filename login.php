@@ -1,4 +1,36 @@
+<?php
+$login = false;
+$showlogerror = false;
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include 'components/db_connect.php';
+
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT * FROM sign WHERE username='$username' AND password ='$password'";
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+
+    if ($num == 1) {
+        $login = true;
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        header("Location: welcome.php");
+        exit; // Make sure to exit after header redirection
+    } else {
+        $showlogerror = "The data you have entered does not exist. Please enter valid details or create an account if you don't have one.";
+    }
+}
+?>
+
+<!doctype html>
+<html lang="en">
+
+<!-- ... (rest of your HTML code) ... -->
+
+</html>
 
 <!doctype html>
 <html lang="en">
@@ -28,6 +60,27 @@ body {
   <?php
     require 'components/_nav.php'
     ?>
+
+<?php
+    if($login){
+      echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+      <strong>Successfully!</strong> Your account have been login....
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>×</span>
+      </button>
+    </div>";
+    }
+    if($showlogerror){
+      echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+      <strong>Error!</strong>'.$showlogerror.'
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>×</span>
+      </button>
+    </div>";
+    }
+    ?>
+
+
     <div class="container d-flex justify-content-center ">
 <div class="card border-success mb-3 card text-center mt-5 card-bg" style="max-width: 25rem;">
   <div class="card-header bg-transparent border-success">Login Your Account</div>
@@ -40,12 +93,7 @@ body {
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label">Password</label><br>
-    <input type="password" class="Password" id="Password" name = "password">
-  </div>
-  <div class="mb-3">
-    <label for="InputPassword1" class="form-label"> Confirm Password</label><br>
-    <input type="password" class="Password" id="cpassword" name = "cpassword">
-    <div id="emailHelp" class="form-text">The Password and confirm password must be same.</div>
+    <input type="password" class="Password" id="password" name = "password">
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
