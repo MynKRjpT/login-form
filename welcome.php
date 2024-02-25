@@ -45,10 +45,10 @@ exit;
     ?>
     <div class="container d-flex justify-content-center ">
         <div class="card border-success mb-3 card text-center mt-5 card-bg" style="max-width: 25rem;">
-            <div class="card-header bg-transparent border-success"> <strong>Welcome to our Home Page-</strong></div>
+            <div class="card-header bg-transparent border-success"> <strong>Hii <?php echo $_SESSION['username']?> Welcome to our i-Portal</strong></div>
             <div class="card-body text-success">
                 <blockquote class="blockquote mb-0">
-                    <p> <strong><?php echo $_SESSION['username']?></strong> </p>
+                    <p> <strong><?php echo $_SESSION['username']?> Your Acoount is created Succesfully...</strong> </p>
                     <footer class="blockquote-footer">This project is created by- <cite title="Source Title">Mayank
                             Rajput</cite></footer>
                 </blockquote>
@@ -56,7 +56,6 @@ exit;
         </div>
     </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
