@@ -45,7 +45,8 @@ exit;
     ?>
     <div class="container d-flex justify-content-center ">
         <div class="card border-success mb-3 card text-center mt-5 card-bg" style="max-width: 25rem;">
-            <div class="card-header bg-transparent border-success"> <strong>Hii <?php echo $_SESSION['username']?> Welcome to our i-Portal</strong></div>
+            <div class="card-header bg-transparent border-success"> <strong>Hii <?php echo $_SESSION['username']?>
+                    Welcome to our i-Portal</strong></div>
             <div class="card-body text-success">
                 <blockquote class="blockquote mb-0">
                     <p> <strong><?php echo $_SESSION['username']?> Your Acoount is created Succesfully...</strong> </p>
