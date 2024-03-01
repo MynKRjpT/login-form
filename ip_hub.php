@@ -1,9 +1,3 @@
-<?php
-session_start();
-if(!isset($_SESSION['loggedin']) || ($_SESSION['loggedin']!=true)){
-header("location:.php");
-exit;
-}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,22 +6,23 @@ exit;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ip Hub – Watch TV Shows Online, Watch Movies Online</title>
     <link rel="stylesheet" href="hub.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" -->
+        <!-- integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  -->
 </head>
 
 <body>
 
     <div class="main">
         <nav>
-            <span><img width="53" src="E:\Netflix\Netflix-Clone\images\logo1.png" alt=""></span>
+            
             <div>
                 <button class="btn">English</button>
-                <button class="btn btn-red-sm" aria-current="page" href="/login-form/logout.php">Logout</button>
+                <form method="post" action="/login-form/logout.php">
+                <button class="btn btn-red-sm" aria-current="page" name="logout_button" href="/login-form/logout.php">Logout</button>
+                </form>
             </div>
         </nav>
-        <div class="box">
-        </div>
+        <div class="box"></div>
         <div class="hero">
             <span>Enjoy big movies, hit series and more from ₹ 149.</span>
             <span>Join today. Cancel anytime.</span>
@@ -37,9 +32,6 @@ exit;
                 <button class="btn btn-red">Get Started &gt;</button>
             </div>
         </div>
-
-        <div class="separation"></div>
-
     </div>
 
     <section class="first">
@@ -54,13 +46,10 @@ exit;
                 autoplay loop muted></video>
         </div>
     </section>
-    <div class="separation"></div>
 
     <section class="first second">
-
         <div class="secImg">
             <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="">
-
         </div>
         <div>
             <span>Download your shows to watch offline</span>
@@ -68,28 +57,22 @@ exit;
         </div>
     </section>
 
-    <div class="separation"></div>
     <section class="first third">
         <div>
             <span>Watch everywhere</span>
             <span>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</span>
         </div>
-
         <div class="secImg">
             <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
             <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v"
                 autoplay loop muted></video>
         </div>
     </section>
-    <div class="separation"></div>
-
 
     <section class="first second">
-
         <div class="secImg">
             <img src="https://occ-0-2849-3646.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d"
                 alt="">
-
         </div>
         <div>
             <span>Create profiles for kids</span>
@@ -98,17 +81,14 @@ exit;
         </div>
     </section>
 
-    <div class="separation"></div>
-
     <section class="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faqbox">
-            <span>What is NetFlix</span>
+            <span>What is Netflix</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
         </div>
         <div class="faqbox">
             <span>How much does Netflix cost?</span>
@@ -116,7 +96,6 @@ exit;
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
         </div>
         <div class="faqbox">
             <span>What can I watch on Netflix?</span>
@@ -124,7 +103,6 @@ exit;
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
         </div>
         <div class="faqbox">
             <span>Where can I watch?</span>
@@ -132,10 +110,8 @@ exit;
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
         </div>
     </section>
-    <div class="separation"></div>
 
     <footer>
         <div class="questions">

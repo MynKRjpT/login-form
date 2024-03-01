@@ -43,6 +43,17 @@ exit;
     <?php
     require 'components/_nav.php'
     ?>
+
+    <?php
+
+// Check if the button has been clicked
+if(isset($_POST['submit_button'])) {
+    // Redirect to the desired URL
+    header("Location: ip_hub.php");
+    exit; // Ensure that no other code is executed after redirection
+}
+?>
+
     <div class="container d-flex justify-content-center ">
         <div class="card border-success mb-3 card text-center mt-5 card-bg" style="max-width: 25rem;">
             <div class="card-header bg-transparent border-success"> <strong>Hii <?php echo $_SESSION['username']?>
@@ -50,6 +61,9 @@ exit;
             <div class="card-body text-success">
                 <blockquote class="blockquote mb-0">
                     <p> <strong><?php echo $_SESSION['username']?> Your Acoount is created Succesfully...</strong> </p>
+                    <form method="post" action="/login-form/welcome.php">
+                        <p><button type="submit" name="submit_button" class="btn btn-primary">Go to I-Hub</button></p>
+                    </form>
                     <footer class="blockquote-footer">This project is created by- <cite title="Source Title">Mayank
                             Rajput</cite></footer>
                 </blockquote>
