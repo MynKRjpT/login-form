@@ -47,9 +47,14 @@ exit;
     <?php
 
 // Check if the button has been clicked
-if(isset($_POST['submit_button'])) {
+if(isset($_POST['open_iphub'])) {
     // Redirect to the desired URL
     header("Location: ip_hub.php");
+    exit; // Ensure that no other code is executed after redirection
+}
+if(isset($_POST['open_ipstore'])) {
+    // Redirect to the desired URL
+    header("Location: ipshop.php");
     exit; // Ensure that no other code is executed after redirection
 }
 ?>
@@ -60,9 +65,12 @@ if(isset($_POST['submit_button'])) {
                     Welcome to our i-Portal</strong></div>
             <div class="card-body text-success">
                 <blockquote class="blockquote mb-0">
-                    <p> <strong><?php echo $_SESSION['username']?> Your Acoount is created Succesfully...</strong> </p>
+                    <p> <strong><?php echo $_SESSION['username']?> Your Account is created Succesfully...</strong> </p>
                     <form method="post" action="/login-form/welcome.php">
-                        <p><button type="submit" name="submit_button" class="btn btn-primary">Go to IP-Hub Movies</button></p>
+                        <p><button type="submit" name="open_iphub" class="btn btn-primary">Go to IP-Hub Movies</button>
+                        </p>
+                        <p><button type="submit" name="open_ipstore" class="btn btn-primary">Go to IP-Hub Store</button>
+                        </p>
                     </form>
                     <footer class="blockquote-footer">This project is created by- <cite title="Source Title">Mayank
                             Rajput</cite></footer>
