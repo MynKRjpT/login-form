@@ -29,9 +29,6 @@ if (!$loggedin) {
 if ($loggedin) {
     echo '<li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/login-form/logout.php">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/login-form/ip_hub.php">IP Hub Movies</a>
         </li>';
 }
 

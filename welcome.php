@@ -62,7 +62,7 @@ if(isset($_POST['submit_button'])) {
                 <blockquote class="blockquote mb-0">
                     <p> <strong><?php echo $_SESSION['username']?> Your Acoount is created Succesfully...</strong> </p>
                     <form method="post" action="/login-form/welcome.php">
-                        <p><button type="submit" name="submit_button" class="btn btn-primary">Go to I-Hub</button></p>
+                        <p><button type="submit" name="submit_button" class="btn btn-primary">Go to IP-Hub Movies</button></p>
                     </form>
                     <footer class="blockquote-footer">This project is created by- <cite title="Source Title">Mayank
                             Rajput</cite></footer>

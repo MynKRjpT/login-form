@@ -1,36 +1,42 @@
+<?php
+session_start();
+if(!isset($_SESSION['loggedin']) || ($_SESSION['loggedin']!=true)){
+header("location:ip_hub.php");
+exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ip Hub – Watch TV Shows Online, Watch Movies Online</title>
+    <title>Ip Hub <?php echo $_SESSION['username']?>– Watch TV Shows Online, Watch Movies Online</title>
     <link rel="stylesheet" href="hub.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" -->
-        <!-- integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  -->
+    <!-- integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  -->
 </head>
 
 <body>
-
     <div class="main">
-        <nav>
-            
-            <div>
-                <button class="btn">English</button>
-                <form method="post" action="/login-form/logout.php">
-                <button class="btn btn-red-sm" aria-current="page" name="logout_button" href="/login-form/logout.php">Logout</button>
-                </form>
-            </div>
-        </nav>
         <div class="box"></div>
         <div class="hero">
+            <span>Welcome <?php echo $_SESSION['username']?> to IP-Hub</span>
             <span>Enjoy big movies, hit series and more from ₹ 149.</span>
             <span>Join today. Cancel anytime.</span>
-            <span>Ready to watch? Enter your email to create or restart your membership.</span>
+            <span>Ready to watch?</span>
             <div class="hero-buttons">
-                <input type="text" placeholder="Email Address">
+                <input type="text" placeholder="Search">
                 <button class="btn btn-red">Get Started &gt;</button>
             </div>
+            <form method="post" action="/login-form/logout.php">
+            <div class="hero-buttons">
+                <button class="btn btn-red-sm" aria-current="page" name="logout_button"
+                    href="/login-form/logout.php">Logout <?php echo $_SESSION['username']?> Yout IP-Hub</button>
+            </div>
+            </form>
         </div>
     </div>
 
@@ -84,21 +90,21 @@
     <section class="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faqbox">
-            <span>What is Netflix</span>
+            <span>What is IP-Hub</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </div>
         <div class="faqbox">
-            <span>How much does Netflix cost?</span>
+            <span>How much does IP-Hub cost?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </div>
         <div class="faqbox">
-            <span>What can I watch on Netflix?</span>
+            <span>What can I watch on IP-Hub?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4V20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M4 12H20" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -118,14 +124,14 @@
             Questions? Call 000-800-919-1694
         </div>
         <div class="footer">
-            <div class="footer-item"> 
+            <div class="footer-item">
                 <a href="faq">Investor Relations</a>
                 <a href="faq">Jobs</a>
                 <a href="faq">Ways to Watch</a>
                 <a href="faq">Terms of Use</a>
             </div>
 
-            <div class="footer-item"> 
+            <div class="footer-item">
                 <a href="faq">Help Centre</a>
                 <a href="faq">Account</a>
                 <a href="faq">Speed Test</a>
@@ -134,15 +140,15 @@
             <div class="footer-item">
                 <a href="faq">Media Centre</a>
                 <a href="faq">Privacy</a>
-                <a href="faq">Cookie Preferences</a> 
+                <a href="faq">Cookie Preferences</a>
                 <a href="faq">Corporate</a>
             </div>
 
             <div class="footer-item">
                 <a href="faq">Contact Us</a>
-                <a href="faq">Speed Test</a> 
-                <a href="faq">Legal Notices</a> 
-                <a href="faq">Only on Netflix</a>
+                <a href="faq">Speed Test</a>
+                <a href="faq">Legal Notices</a>
+                <a href="faq">Only on IP-Hub</a>
             </div>
         </div>
     </footer>

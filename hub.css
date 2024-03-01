@@ -11,7 +11,7 @@ body {
 }
 
 .main {
-    background-image: url("logo1.png");
+    background-image: url("iphubimg.jpg");
     background-position: center center;
     background-size: max(1200px, 100vw);
     background-repeat: no-repeat;
@@ -26,30 +26,6 @@ body {
     position: absolute;
     top: 0;
     background-color: black;
-}
-
-.nav-container {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-nav {
-    max-width: 60vw;
-    justify-content: space-between;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    height: 100px;
-}
-
-.navimg {
-    width: 100px; /* Adjust the width to your desired size */
-    height: auto;
-}
-
-nav button {
-    position: relative;
-    z-index: 10;
 }
 
 .hero {
