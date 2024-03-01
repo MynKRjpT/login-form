@@ -65,7 +65,7 @@ if(isset($_POST['open_ipstore'])) {
                     Welcome to our i-Portal</strong></div>
             <div class="card-body text-success">
                 <blockquote class="blockquote mb-0">
-                    <p> <strong><?php echo $_SESSION['username']?> Your Account is created Succesfully...</strong> </p>
+                    <p> <strong><?php echo $_SESSION['username']?> Your Account  Login Succesfully...</strong> </p>
                     <form method="post" action="/login-form/welcome.php">
                         <p><button type="submit" name="open_iphub" class="btn btn-primary">Go to IP-Hub Movies</button>
                         </p>
