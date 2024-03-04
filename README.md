@@ -8,3 +8,4 @@ Database Connectivity.
 Password Hashing and Password verify
 Sessions
 Get and Post Method
+Adding Functionality to prevent database from xss attack
