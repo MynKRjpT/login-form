@@ -7,9 +7,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate input fields
     $name = trim($_POST["name"]);
+    $name = str_replace("<", "&lt;", $name);
+    $name = str_replace(">", "&gt;", $name);
+  
     $username = trim($_POST["username"]);
+    $username = str_replace("<", "&lt;", $username);
+    $username = str_replace(">", "&gt;", $username);
     $password = $_POST["password"];
+    $password = $_POST["password"];    
+    // $password = str_replace("<", "&gt;", $password);
+    // $password = str_replace(">", "&lt;", $password);
     $cpassword = $_POST["cpassword"];
+    $cpassword = $_POST["cpassword"];    
+    // $cpassword = str_replace("<", "&gt;", $cpassword);
+    // $cpassword = str_replace(">", "&lt;", $cpassword);
 
     if (empty($name) || empty($username) || empty($password) || empty($cpassword)) {
         $datainerror = "All fields are required.";

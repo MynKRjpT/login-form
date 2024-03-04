@@ -5,8 +5,12 @@ $showlogerror = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include 'components/db_connect.php';
 
-    $username = $_POST["username"];
+    $username =$_POST["username"];
+    $username = str_replace(">", "&gt;", $username);
+    $username = str_replace("<", "&lt;", $username);
     $password = $_POST["password"];
+    // $password = str_replace("<", "&gt;", $password);
+    // $password = str_replace(">", "&lt;", $password);
 
     $sql = "SELECT * FROM sign WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
