@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $alert = true;
+                    header("location:login.php");
                 } else {
                     $datainerror = "An error occurred. Please try again later.";
                 }
